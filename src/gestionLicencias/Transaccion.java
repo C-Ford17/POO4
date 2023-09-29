@@ -15,6 +15,10 @@ public class Transaccion implements Cloneable{
         return licencia;
     }
 
+    public void setLicencia(Licencia licencia) {
+        this.licencia = licencia;
+    }
+
     public LocalDate getFecha() {
         return fecha;
     }
@@ -25,19 +29,8 @@ public class Transaccion implements Cloneable{
                 "Licencia{" +
                 "email='" + licencia.getEmail() + '\'' +
                 ", servicio='" + licencia.getServicio() + '}' +
+                ", codigo='" + licencia.getCodigo() + '}' +
                 ", fecha=" + fecha +
                 '}';
-    }
-
-    @Override
-    public Transaccion clone() throws CloneNotSupportedException {
-        Transaccion transaccion = copiaSuperficial();
-        transaccion.licencia = this.licencia.clone();
-        return transaccion;
-    }
-
-    private Transaccion copiaSuperficial() throws CloneNotSupportedException {
-        Transaccion copiasuperficial = (Transaccion) super.clone();
-        return copiasuperficial;
     }
 }

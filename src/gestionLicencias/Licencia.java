@@ -88,6 +88,9 @@ public abstract class Licencia implements Cloneable{
         Licencia licencia = copiaSuperficial();
         licencia.transacciones = List.copyOf(this.getTransacciones());
         licencia.codigo = UUID.randomUUID().toString();
+        for (Transaccion transaccion:licencia.transacciones) {
+            transaccion.setLicencia(licencia);
+        }
         return licencia;
     }
 
